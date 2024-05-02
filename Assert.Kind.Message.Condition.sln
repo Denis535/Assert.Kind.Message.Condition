@@ -3,13 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assert.Kind.Message.Condition", "Assert.Kind.Message.Condition\Assert.Kind.Message.Condition.csproj", "{B0FADBF2-1B5B-4956-9550-5D6CF3E0DFF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assert.Kind.Message.Condition", "Assert.Kind.Message.Condition\Assert.Kind.Message.Condition.csproj", "{B0FADBF2-1B5B-4956-9550-5D6CF3E0DFF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assert.Kind.Message.Condition.Tests", "Assert.Kind.Message.Condition.Tests\Assert.Kind.Message.Condition.Tests.csproj", "{CEB67B5E-4D14-4305-BA95-F029F59989A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assert.Kind.Message.Condition.Tests", "Assert.Kind.Message.Condition.Tests\Assert.Kind.Message.Condition.Tests.csproj", "{CEB67B5E-4D14-4305-BA95-F029F59989A7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F68B5941-1E8D-4781-8717-D1FD080A2EF6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D2E59792-4F0B-443F-9A94-9FCF1C32FB76}"
 	ProjectSection(SolutionItems) = preProject
 		Icon.png = Icon.png
+		LICENSE = LICENSE
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject

@@ -25,7 +25,7 @@
         <PackageProjectUrl>https://github.com/Denis535/Assert.Kind.Message.Condition</PackageProjectUrl>
         <PackageTags>Assert; Log; Assertion; Exception; Logging</PackageTags>
 
-        <PackageLicenseFile>../LICENSE</PackageLicenseFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageLicenseUrl></PackageLicenseUrl>
         <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
 
@@ -63,6 +63,7 @@
         <ItemGroup>
             <TfmSpecificPackageFile Include="../Readme.md" PackagePath="/" />
             <TfmSpecificPackageFile Include="../Icon.png" PackagePath="/" />
+            <TfmSpecificPackageFile Include="../LICENSE" PackagePath="/" />
         </ItemGroup>
     </Target>
 
