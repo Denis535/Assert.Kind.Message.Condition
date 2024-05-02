@@ -15,13 +15,11 @@ public class Tests {
     }
 
     [Test]
-    public void Test_01_Assert() {
+    public void Test_01_Assertions() {
         NUnit.Framework.Assert.Catch<ArgumentException>( () => Assert.Argument.Message( $"ArgumentException" ).Valid( false ) );
         NUnit.Framework.Assert.Catch<ArgumentOutOfRangeException>( () => Assert.Argument.Message( $"ArgumentOutOfRangeException" ).InRange( false ) );
         NUnit.Framework.Assert.Catch<ArgumentNullException>( () => Assert.Argument.Message( $"ArgumentNullException" ).NotNull( false ) );
-
         NUnit.Framework.Assert.Catch<InvalidOperationException>( () => Assert.Operation.Message( $"InvalidOperationException" ).Valid( false ) );
-
         NUnit.Framework.Assert.Catch<ObjectNotInitializedException>( () => Assert.Object.Message( $"ObjectNotInitializedException" ).Initialized( false ) );
         NUnit.Framework.Assert.Catch<ObjectDisposedException>( () => Assert.Object.Message( $"ObjectDisposedException" ).Alive( false ) );
     }
@@ -30,8 +28,8 @@ public class Tests {
     public void Test_02_GetMessageString() {
         TestContext.WriteLine( Exceptions.GetMessageStringDelegate( $"Value: {null}" ) );
         TestContext.WriteLine( Exceptions.GetMessageStringDelegate( $"Value: {777}" ) );
-        TestContext.WriteLine( Exceptions.GetMessageStringDelegate( $"Array: {new int[] { 666, 777 }}" ) );
-        TestContext.WriteLine( Exceptions.GetMessageStringDelegate( $"Array: {new object?[] { null, 666, 777 }}" ) );
+        TestContext.WriteLine( Exceptions.GetMessageStringDelegate( $"Values: {new int[] { 666, 777 }}" ) );
+        TestContext.WriteLine( Exceptions.GetMessageStringDelegate( $"Values: {new object?[] { null, 666, 777 }}" ) );
     }
 
 }
