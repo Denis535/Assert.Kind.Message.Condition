@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assert.Kind.Message.Conditi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assert.Kind.Message.Condition.Tests", "Assert.Kind.Message.Condition.Tests\Assert.Kind.Message.Condition.Tests.csproj", "{CEB67B5E-4D14-4305-BA95-F029F59989A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F68B5941-1E8D-4781-8717-D1FD080A2EF6}"
+	ProjectSection(SolutionItems) = preProject
+		Icon.png = Icon.png
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
