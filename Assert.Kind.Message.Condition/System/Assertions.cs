@@ -6,6 +6,7 @@
     using System.Runtime.CompilerServices;
 
     public static class Assertions {
+        // Assertion
         public abstract class Assertion {
             public FormattableString? Message { get; }
             public Assertion(FormattableString? message) {
@@ -15,6 +16,7 @@
                 return Exceptions.GetMessageStringDelegate( Message );
             }
         }
+        // Argument
         public class Argument : Assertion {
             public Argument(FormattableString? message) : base( message ) {
             }
@@ -32,6 +34,7 @@
                 if (!isValid) throw Exceptions.GetException<ArgumentNullException>( Message );
             }
         }
+        // Operation
         public class Operation : Assertion {
             public Operation(FormattableString? message) : base( message ) {
             }
@@ -41,6 +44,7 @@
                 if (!isValid) throw Exceptions.GetException<InvalidOperationException>( Message );
             }
         }
+        // Object
         public class Object : Assertion {
             public Object(FormattableString? message) : base( message ) {
             }

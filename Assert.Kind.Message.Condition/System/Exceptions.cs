@@ -4,13 +4,16 @@ namespace System {
     using System.Collections.Generic;
     using System.Linq;
 
-    public static class Exceptions {
+    public static partial class Exceptions {
+        // Internal
         public static class Internal {
             public static Exception Exception(FormattableString? message) => GetException<Exception>( message );
             public static NullReferenceException NullReference(FormattableString? message) => GetException<NullReferenceException>( message );
             public static NotSupportedException NotSupported(FormattableString? message) => GetException<NotSupportedException>( message );
             public static NotImplementedException NotImplemented(FormattableString? message) => GetException<NotImplementedException>( message );
         }
+    }
+    public static partial class Exceptions {
 
         public static Func<FormattableString?, string?> GetMessageStringDelegate = GetMessageString;
         public static Func<object?, string> GetArgumentStringDelegate = GetArgumentString;
