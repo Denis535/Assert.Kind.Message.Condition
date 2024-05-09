@@ -5,6 +5,21 @@ namespace System {
     using System.Linq;
 
     public static partial class Exceptions {
+        // Argument
+        public static class Argument {
+            public static ArgumentException ArgumentException(FormattableString? message) => GetException<ArgumentException>( message );
+            public static ArgumentOutOfRangeException ArgumentOutOfRangeException(FormattableString? message) => GetException<ArgumentOutOfRangeException>( message );
+            public static ArgumentNullException ArgumentNullException(FormattableString? message) => GetException<ArgumentNullException>( message );
+        }
+        // Operation
+        public static class Operation {
+            public static InvalidOperationException InvalidOperationException(FormattableString? message) => GetException<InvalidOperationException>( message );
+        }
+        // Object
+        public static class Object {
+            public static ObjectNotInitializedException ObjectNotInitializedException(FormattableString? message) => GetException<ObjectNotInitializedException>( message );
+            public static ObjectDisposedException ObjectDisposedException(FormattableString? message) => GetException<ObjectDisposedException>( message );
+        }
         // Internal
         public static class Internal {
             public static Exception Exception(FormattableString? message) => GetException<Exception>( message );
@@ -20,7 +35,7 @@ namespace System {
         public static Func<Type, string?, Exception> GetExceptionDelegate = GetException;
 
         // GetException
-        internal static T GetException<T>(FormattableString? message) where T : Exception {
+        public static T GetException<T>(FormattableString? message) where T : Exception {
             return GetException<T>( GetMessageStringDelegate( message ) );
         }
         internal static T GetException<T>(string? message) where T : Exception {
