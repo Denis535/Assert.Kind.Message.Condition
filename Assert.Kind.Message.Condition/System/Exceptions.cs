@@ -8,15 +8,12 @@ namespace System {
         // Argument
         public static class Argument {
             public static ArgumentException ArgumentException(FormattableString? message) => GetException<ArgumentException>( message );
-            public static ArgumentOutOfRangeException ArgumentOutOfRangeException(FormattableString? message) => GetException<ArgumentOutOfRangeException>( message );
             public static ArgumentNullException ArgumentNullException(FormattableString? message) => GetException<ArgumentNullException>( message );
+            public static ArgumentOutOfRangeException ArgumentOutOfRangeException(FormattableString? message) => GetException<ArgumentOutOfRangeException>( message );
         }
         // Operation
         public static class Operation {
             public static InvalidOperationException InvalidOperationException(FormattableString? message) => GetException<InvalidOperationException>( message );
-        }
-        // Object
-        public static class Object {
             public static ObjectNotReadyException ObjectNotReadyException(FormattableString? message) => GetException<ObjectNotReadyException>( message );
             public static ObjectDisposedException ObjectDisposedException(FormattableString? message) => GetException<ObjectDisposedException>( message );
         }

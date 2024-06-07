@@ -24,12 +24,12 @@
                 if (!isValid) throw Exceptions.GetException<ArgumentException>( Message );
             }
             [MethodImpl( MethodImplOptions.AggressiveInlining )]
-            public void InRange([DoesNotReturnIf( false )] bool isValid) {
-                if (!isValid) throw Exceptions.GetException<ArgumentOutOfRangeException>( Message );
-            }
-            [MethodImpl( MethodImplOptions.AggressiveInlining )]
             public void NotNull([DoesNotReturnIf( false )] bool isValid) {
                 if (!isValid) throw Exceptions.GetException<ArgumentNullException>( Message );
+            }
+            [MethodImpl( MethodImplOptions.AggressiveInlining )]
+            public void InRange([DoesNotReturnIf( false )] bool isValid) {
+                if (!isValid) throw Exceptions.GetException<ArgumentOutOfRangeException>( Message );
             }
 
             public override string? ToString() {
@@ -50,21 +50,6 @@
             public void Valid([DoesNotReturnIf( false )] bool isValid) {
                 if (!isValid) throw Exceptions.GetException<InvalidOperationException>( Message );
             }
-
-            public override string? ToString() {
-                return Exceptions.GetMessageStringDelegate( Message );
-            }
-
-        }
-        // Object
-        public readonly struct Object : IAssertion {
-
-            public FormattableString? Message { get; }
-
-            public Object(FormattableString? message) {
-                Message = message;
-            }
-
             [MethodImpl( MethodImplOptions.AggressiveInlining )]
             public void Ready([DoesNotReturnIf( false )] bool isValid) {
                 if (!isValid) throw Exceptions.GetException<ObjectNotReadyException>( Message );
