@@ -3,6 +3,8 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace/>
 
         <!--Assembly attributes-->
         <Version>1.0.6</Version>
@@ -13,7 +15,7 @@
         <Copyright></Copyright>
         <RepositoryUrl>https://github.com/Denis535/Assert.Kind.Message.Condition</RepositoryUrl>
 
-        <!--Nuget package attributes-->
+        <!--Package attributes-->
         <IsPackable>true</IsPackable>
         <Title>$(AssemblyName)</Title>
         <PackageId>$(AssemblyName)</PackageId>
@@ -32,7 +34,7 @@
         <IsTool>false</IsTool>
         <DevelopmentDependency>false</DevelopmentDependency>
 
-        <!--Nuget pack options-->
+        <!--Pack options-->
         <EnableDefaultItems>true</EnableDefaultItems>
         <EnableDefaultNoneItems>true</EnableDefaultNoneItems>
         <EnableDefaultCompileItems>true</EnableDefaultCompileItems>

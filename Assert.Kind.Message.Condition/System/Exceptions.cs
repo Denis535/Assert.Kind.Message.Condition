@@ -5,27 +5,6 @@ namespace System {
     using System.Linq;
 
     public static partial class Exceptions {
-        // Argument
-        public static class Argument {
-            public static ArgumentException ArgumentException(FormattableString? message) => GetException<ArgumentException>( message );
-            public static ArgumentNullException ArgumentNullException(FormattableString? message) => GetException<ArgumentNullException>( message );
-            public static ArgumentOutOfRangeException ArgumentOutOfRangeException(FormattableString? message) => GetException<ArgumentOutOfRangeException>( message );
-        }
-        // Operation
-        public static class Operation {
-            public static InvalidOperationException InvalidOperationException(FormattableString? message) => GetException<InvalidOperationException>( message );
-            public static ObjectNotReadyException ObjectNotReadyException(FormattableString? message) => GetException<ObjectNotReadyException>( message );
-            public static ObjectDisposedException ObjectDisposedException(FormattableString? message) => GetException<ObjectDisposedException>( message );
-        }
-        // Internal
-        public static class Internal {
-            public static Exception Exception(FormattableString? message) => GetException<Exception>( message );
-            public static NullReferenceException NullReference(FormattableString? message) => GetException<NullReferenceException>( message );
-            public static NotSupportedException NotSupported(FormattableString? message) => GetException<NotSupportedException>( message );
-            public static NotImplementedException NotImplemented(FormattableString? message) => GetException<NotImplementedException>( message );
-        }
-    }
-    public static partial class Exceptions {
 
         public static Func<FormattableString?, string?> GetMessageStringDelegate = GetMessageString;
         public static Func<object?, string> GetArgumentStringDelegate = GetArgumentString;
@@ -33,10 +12,8 @@ namespace System {
 
         // GetException
         public static T GetException<T>(FormattableString? message) where T : Exception {
-            return GetException<T>( GetMessageStringDelegate( message ) );
-        }
-        private static T GetException<T>(string? message) where T : Exception {
-            return (T) GetExceptionDelegate( typeof( T ), message );
+            var message2 = GetMessageStringDelegate( message );
+            return (T) GetExceptionDelegate( typeof( T ), message2 );
         }
 
         // Helpers
@@ -58,16 +35,37 @@ namespace System {
             if (argument is IList list) {
                 return string.Join( ", ", list.Cast<object?>().Select( GetArgumentString ) );
             }
-            if (argument is null) {
-                return "Null";
+            if (argument is not null) {
+                return argument.ToString();
             }
-            return argument.ToString();
+            return "Null";
         }
         private static Exception GetException(Type type, string? message) {
-            var constructor = type.GetConstructor( new Type[] { typeof( string ), typeof( Exception ) } );
-            return (Exception) constructor.Invoke( new object?[] { message, null } );
+            var constructor = type.GetConstructor( [ typeof( string ), typeof( Exception ) ] );
+            return (Exception) constructor.Invoke( [ message, null ] );
         }
 
+    }
+    public static partial class Exceptions {
+        // Argument
+        public static class Argument {
+            public static ArgumentException ArgumentException(FormattableString? message) => GetException<ArgumentException>( message );
+            public static ArgumentNullException ArgumentNullException(FormattableString? message) => GetException<ArgumentNullException>( message );
+            public static ArgumentOutOfRangeException ArgumentOutOfRangeException(FormattableString? message) => GetException<ArgumentOutOfRangeException>( message );
+        }
+        // Operation
+        public static class Operation {
+            public static InvalidOperationException InvalidOperationException(FormattableString? message) => GetException<InvalidOperationException>( message );
+            public static ObjectNotReadyException ObjectNotReadyException(FormattableString? message) => GetException<ObjectNotReadyException>( message );
+            public static ObjectDisposedException ObjectDisposedException(FormattableString? message) => GetException<ObjectDisposedException>( message );
+        }
+        // Internal
+        public static class Internal {
+            public static Exception Exception(FormattableString? message) => GetException<Exception>( message );
+            public static NullReferenceException NullReference(FormattableString? message) => GetException<NullReferenceException>( message );
+            public static NotSupportedException NotSupported(FormattableString? message) => GetException<NotSupportedException>( message );
+            public static NotImplementedException NotImplemented(FormattableString? message) => GetException<NotImplementedException>( message );
+        }
     }
     // ObjectNotReadyException
     public class ObjectNotReadyException : InvalidOperationException {
